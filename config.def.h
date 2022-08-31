@@ -3,22 +3,36 @@ static const char *user  = "nobody";
 static const char *group = "nogroup";
 
 static const char *colorname[NUMCOLS] = {
-	[INIT] =   "black",     /* after initialization */
+    [BACKGROUND] = "white",
+	[INIT] =   "2d2d2d",     /* after initialization */
 	[INPUT] =  "#005577",   /* during input */
-	[FAILED] = "#cc3333",   /* wrong password */
+	[FAILED] = "#CC3333",   /* wrong password */
 };
-
-/* lock screen opacity */
-static const float alpha = 1;
 
 /* treat a cleared input like a wrong password (color) */
 static const int failonclear = 1;
 
-/* default message */
-static const char * message = "Suckless: Software that sucks less.";
+static const int logosize = 75;
+static const int logow = 12; /* Grid width and height for right center alignment*/
+static const int logoh = 6;
 
-/* text color */
-static const char * text_color = "#ffffff";
+static XRectangle rectangles[9] = {
+    {0, 3, 1, 3},
+    {1, 3, 2, 1},
+    {0, 5, 8, 1},
+    {3, 0, 1, 5},
+    {5, 3, 1, 2},
+    {7, 3, 1, 2},
+    {8, 3, 4, 1},
+    {9, 4, 1, 2},
+    {11,4, 1, 2},
+};
 
-/* text size (must be a valid size) */
-static const char * text_size = "fixed";
+/*Enable blur*/
+#define BLUR
+/*Set blur radius*/
+static const int blurRadius=5;
+/*Enable Pixelation*/
+//#define PIXELATION
+/*Set pixelation radius*/
+static const int pixelSize=0;
